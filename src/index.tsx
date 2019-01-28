@@ -12,6 +12,15 @@ import { CounterButton } from './CounterButton';
   You _must_ use `.tsx` and have React in scope with TS for JSX purposes.
 */
 
+declare namespace ReactDOM {
+  // This def doesn't work! But is a good sanity check -- TSC gets reaaaaally
+  // unhappy about this _because_ of the code below. Hence this being commented
+  // out.
+  // function render(): void;
+
+  function render(someElement: any, targetElement: HTMLElement): void;
+}
+
 ReactDOM.render(
   <CounterButton />,
   document.getElementById('root')
