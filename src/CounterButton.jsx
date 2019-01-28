@@ -5,6 +5,11 @@
   So, first we make it .jsx, and add Component to our namepspace for React
 */
 
+/**
+ * @param {number} someNumber
+ *
+ * @returns {number} the value plus 5
+ */
 function addFiveToCount(someNumber) {
   const result = someNumber + 5;
 
