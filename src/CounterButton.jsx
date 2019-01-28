@@ -12,6 +12,9 @@
  */
 function addFiveToCount(someNumber) {
   const result = someNumber + 5;
+  // Now it knows this is a number -- so it'll get pissed it I...
+
+  console.log(result.slice(1)); // 'Property "slice" does not ...'
 
   return result;
 }
@@ -36,6 +39,7 @@ export class CounterButton extends React.Component {
   render() {
     const { count } = this.state;
     return (
+      // Property 'div' does not exist ... etc
       <div style={{ backgroundColor: this.props.backgroundColor }}>
         <button onClick={this.increment}>
           {count}

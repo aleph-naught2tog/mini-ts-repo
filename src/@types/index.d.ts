@@ -11,3 +11,7 @@ declare namespace React {
 
   class Component {}
 }
+
+declare namespace JSX {
+  interface IntrinsicElements {}
+}
