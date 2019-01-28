@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react", // this is just for example
     /* Basic Options */
     "allowJs": true,
     "checkJs": true,
