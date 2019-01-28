@@ -8,4 +8,6 @@ declare namespace React {
     props: any,
     ...children: any[]
   ): HTMLElement;
+
+  class Component {}
 }
