@@ -1,3 +1,7 @@
+/*
+  This file is probably REAL full of errors now; hopefully!
+*/
+
 function addFiveToCount(someNumber) {
   const result = someNumber + 5;
 
