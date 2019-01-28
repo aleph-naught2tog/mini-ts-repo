@@ -1,27 +1,26 @@
-import { CounterButton } from './CounterButton';
+import { CounterButton } from "./CounterButton";
 
 /*
-  So, React isn't in scope, nor is ReactDOM, because let's pretend I'm using them from a CDN.
-
-  I could either:
-    1. `npm install @types/react @types/react-dom`
-    2. Lie to the compiler and promise really hard that they exist and everything is fine
-
-  Inline typedefs are less helpful here, so let's do option 2 -- which is why this file is now called `index.tsX`
-
-  You _must_ use `.tsx` and have React in scope with TS for JSX purposes.
+  I got sloppy here and am doing `any` because I wanted to finish this up, but you get the idea.
 */
 
 declare namespace ReactDOM {
-  // This def doesn't work! But is a good sanity check -- TSC gets reaaaaally
-  // unhappy about this _because_ of the code below. Hence this being commented
-  // out.
-  // function render(): void;
-
   function render(someElement: any, targetElement: HTMLElement): void;
 }
 
+// declare namespace React {} // <- nope!
+declare namespace React {
+  function createElement(
+    elementType: any,
+    props: any,
+    ...children: any[]
+  ): HTMLElement;
+}
+
+// The two "declare namespace" bits above are enough to tell the compiler "this
+// is fine, seriously, please relax"
+
 ReactDOM.render(
   <CounterButton />,
-  document.getElementById('root')
+  document.getElementById("root")! // <-- the ! is "no seriously, that exists, please compile"
 );
